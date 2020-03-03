@@ -9,7 +9,6 @@ class Instructions extends Component {
                 <li>Select the day.</li>
                 <li>Check the box to mark the habit as done, and enter a note if you'd like.</li>
                 <li>Click submit to store it!</li>
-                <li>The days you have completed your habit will be blue, and days you have added a note have a dot. </li>
                 <li>Your habit logs will appear below the tracker.</li>
             </ul>
         );

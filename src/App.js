@@ -29,6 +29,7 @@ class HabitApp extends Component {
                 console.log(notesFromDb[key]);
                 console.log(key);
                 const habitInfo = {
+                    key: key,
                     day: notesFromDb[key].day,
                     done: notesFromDb[key].done,
                     notes: notesFromDb[key].habit,
@@ -88,9 +89,16 @@ class HabitApp extends Component {
         })
     }
 
+    removeLog = (logKey) => {
+        console.log(logKey);
+        const dbRef = firebase.database().ref();
+        dbRef.child(logKey).remove();
+    }
+
     render() {
+        console.log(this.state.habitHistory)
         return (
-                <div className = 'wrapper'>
+            <div className = 'wrapper'>
                 <header>
                     <h1>Handy Habits</h1>
                     <h4>Creating a habit takes time. Track your habit over 30 days!</h4>
@@ -101,10 +109,23 @@ class HabitApp extends Component {
                     handleHabitDoneChangeFunc = {this.handleHabitDoneChange}
                     handleFormSubmitFunc = {this.handleFormSubmit}
                     handleHabitChangeFunc = {this.handleHabitChange}
-                    handleRadioButtonSelectFunc = {this.handleRadioButtonSelect} 
+                    handleRadioButtonSelectFunc = {this.handleRadioButtonSelect}
                     />
+                    <div className='habitLog border'>
+                        <h2>Habit Log</h2>
+                        <ul>
+                            {this.state.habitHistory.map((log, index) => {
+                                return (
+                                    <li key={log.key}>
+                                        <p>Day:{log.day} Notes: {log.notes} </p>
+                                        <button onClick={() => {this.removeLog(log.key)}}>Remove Log</button>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
                 </main>
-                </div>
+            </div>
         );
     }
 }
