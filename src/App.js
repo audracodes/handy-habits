@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
-import Instructions from './Instructions.js'
-import DayGrid from './DayGrid.js'
-import Form from './Form.js'
+import Instructions from './Instructions.js';
+import Form from './Form.js';
 import './App.css';
 
 class HabitApp extends Component {
@@ -11,8 +10,9 @@ class HabitApp extends Component {
         super();
 
         this.state = {
-            array: [],
-            habitDone: '',
+            radioButton: 0,
+            habitHistory: [],
+            habitDone: false,
             userInput: ''
         }
     }
@@ -26,29 +26,29 @@ class HabitApp extends Component {
             const stateToBeSet = [];
 
             for (let key in notesFromDb) {
+                console.log(notesFromDb[key]);
+                console.log(key);
                 const habitInfo = {
-                    key: key,
-                    name: notesFromDb[key],
+                    day: notesFromDb[key].day,
+                    done: notesFromDb[key].done,
+                    notes: notesFromDb[key].habit,
                 }
 
                 stateToBeSet.push(habitInfo);
             }
 
             this.setState({
-                array: stateToBeSet,
-                // userNotes: stateToBeSet,
-                // userInput: '',
-
+                habitHistory: stateToBeSet,
             })
         })
     }
 
     handleHabitDoneChange = (e) => {
+        console.log(e.target.checked);
         this.setState ({
-            habitDone: e.target.value
-        }, ()=>{
-            console.log(this.state.habitDone);
+            habitDone: e.target.checked
         })
+
     }
 
     handleHabitChange = (event) => {
@@ -64,37 +64,47 @@ class HabitApp extends Component {
 
         const dbRef = firebase.database().ref();
 
-        const object = {
+        const objectReadyForDatabase = {
+            day: this.state.radioButton,
             done: this.state.habitDone,
             habit: this.state.userInput,
         }
 
-        console.log(object);
-        dbRef.push(object);
+        console.log(event);
+        dbRef.push(objectReadyForDatabase);
 
 
         this.setState ({
             userInput: '',
+            radioButton: 0,
+            habitDone: false, 
+        })
+    }
+
+    handleRadioButtonSelect = (event) => {
+        console.log(event.target.value)
+        this.setState ({
+            radioButton: event.target.value,
         })
     }
 
     render() {
         return (
-                <body className = 'wrapper'>
+                <div className = 'wrapper'>
                 <header>
                     <h1>Handy Habits</h1>
                     <h4>Creating a habit takes time. Track your habit over 30 days!</h4>
                 </header>
                 <main>
                     <Instructions /> 
-                    <DayGrid />
                     <Form 
                     handleHabitDoneChangeFunc = {this.handleHabitDoneChange}
                     handleFormSubmitFunc = {this.handleFormSubmit}
-                    handleHabitChangeFunc = {this.handleHabitChange} 
+                    handleHabitChangeFunc = {this.handleHabitChange}
+                    handleRadioButtonSelectFunc = {this.handleRadioButtonSelect} 
                     />
                 </main>
-                </body>
+                </div>
         );
     }
 }
