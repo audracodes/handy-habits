@@ -16,9 +16,53 @@ code {
 /* * This is where our code starts */
 
 /* General Styles */
+
 .wrapper {
   max-width: 1000px;
   width: 80%;
-  margin: 0 auto;
+  margin: 5% auto;
   text-align: center;
+  background: beige;
+  border: 10px dashed lightblue;
+  padding: 3%;
+}
+
+html {
+  background: beige;
+}
+
+/* Header */
+h1 {
+  text-decoration: underline;
+}
+
+/* Instructions */
+.instructions {
+  list-style-type: number;
+  text-align: left;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Day Grid */
+.dayGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+  border: 2px solid black;
+}
+
+.dayGrid form input {
+  width: 20%;
+  min-width: 50px;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 850px) {
+  /* Instructions */
+  .instructions {
+    width: 80%;
+  }
 }
