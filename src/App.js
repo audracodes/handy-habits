@@ -80,7 +80,7 @@ class HabitApp extends Component {
 
     render() {
         return (
-                <main className = 'wrapper'>
+                <body className = 'wrapper'>
                 <header>
                     <h1>Handy Habits</h1>
                     <h4>Creating a habit takes time. Track your habit over 30 days!</h4>
@@ -94,7 +94,7 @@ class HabitApp extends Component {
                     handleHabitChangeFunc = {this.handleHabitChange} 
                     />
                 </main>
-                </main>
+                </body>
         );
     }
 }

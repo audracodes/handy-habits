@@ -6,7 +6,7 @@ class DayGrid extends Component {
 
     render() {
         return (
-            <div className="dayGrid">
+            <div className="dayGrid wrapper">
               <form action="">
                 <label htmlFor="1">1</label>
                 <input type="radio" name="day" value="1" />
@@ -97,9 +97,6 @@ class DayGrid extends Component {
 
                 <label htmlFor="30">30</label>
                 <input type="radio" name="day" value="30" />
-
-                <label htmlFor="31">31</label>
-                <input type="radio" name="day" value="31" />
               </form>
             </div>
         );

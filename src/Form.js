@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 class Form extends Component {
     render() {
         return (
-            <div>
-                <form action="submit" onSubmit = {this.props.handleFormSubmitFunc}>
+            <div className=' wrapper' >
+                <form action="submit" onSubmit = {this.props.handleFormSubmitFunc} className='form' >
                     <label htmlFor="habitDone">Habit done?</label>
                     <input type="checkbox" id="habitDone" name="done"
                     onChange={this.props.handleHabitDoneChangeFunc}/>

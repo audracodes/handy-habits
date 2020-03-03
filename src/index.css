@@ -16,20 +16,19 @@ code {
 /* * This is where our code starts */
 
 /* General Styles */
+html {
+  background: beige;
+}
 
 .wrapper {
+  border: 10px dashed lightblue;
+  padding: 3%;
   max-width: 1000px;
   width: 80%;
   margin: 5% auto;
   text-align: center;
-  background: beige;
-  border: 10px dashed lightblue;
-  padding: 3%;
 }
 
-html {
-  background: beige;
-}
 
 /* Header */
 h1 {
@@ -42,24 +41,44 @@ h1 {
   text-align: left;
   width: 50%;
   margin: 0 auto;
+  border: none;
 }
 
 /* Day Grid */
 .dayGrid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5%;
+  margin: 3% auto;
+  border: none;
+}
+.dayGrid label {
+  display: inline-block;
+  width: 5%;
+  /* position: relative; */
+  cursor: pointer;
+  font-size: 20px;
+  padding: 25px;
   border: 2px solid black;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.dayGrid form input {
-  width: 20%;
-  min-width: 50px;
+.dayGrid input {
+  /* position: absolute; */
+  /* opacity: 0; */
 }
 
+.dayGrid label:hover,
+.dayGrid label:focus {
+  background-color: lightblue;
+}
+
+/* Form Section */
+.form label {
+  padding-left: 50px;
+}
 
 /* Media Queries */
-
 @media (max-width: 850px) {
   /* Instructions */
   .instructions {

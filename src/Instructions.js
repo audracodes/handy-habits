@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class Instructions extends Component {
     render() {
         return (
-            <ul className='instructions' >
+            <ul className='instructions wrapper' >
                 <li>Select the day.</li>
                 <li>Check the box to mark the habit as done, and enter a note if you'd like.</li>
                 <li>Click submit to store it!</li>
