@@ -58,24 +58,36 @@ class HabitApp extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault();
 
-        const dbRef = firebase.database().ref();
+        // The tracker needs a day to store information
+        // Because some days the habit might not get done or users will not want to enter a note, the form will submit with only one input filled out (but needs at least one).
 
-        const objectReadyForDatabase = {
-            day: this.state.radioButton,
-            done: this.state.habitDone,
-            habit: this.state.userInput,
+        if (this.state.radioButton === 0) {
+            alert('Please select a day!')
+        } else {
+
+            if (this.state.userInput === "" && this.state.habitDone === false) {
+                alert('Please mark off the habit or enter a note!')
+            } else {
+                
+                const dbRef = firebase.database().ref();
+        
+                const objectReadyForDatabase = {
+                    day: this.state.radioButton,
+                    done: this.state.habitDone,
+                    habit: this.state.userInput,
+                }
+        
+                dbRef.push(objectReadyForDatabase);
+        
+                // This is used to reset the values of the checkbox and the text field. The radio buttons (day selector) doesn't get reset to allow for multiple logs for the same day.
+                this.setState ({
+                    userInput: '',
+                    habitDone: false, 
+                }) 
+            }
+          }
         }
 
-        dbRef.push(objectReadyForDatabase);
-
-        this.setState ({
-            userInput: '',
-            radioButton: 27,
-            habitDone: false, 
-        }, () => {
-            window.location.reload()
-        }) 
-    }
 
     handleRadioButtonSelect = (event) => {
         this.setState ({
@@ -110,7 +122,7 @@ class HabitApp extends Component {
                             {this.state.habitHistory.map((log, index) => {
                                 return (
                                     <li key={log.key}>
-                                        <p>Day:{log.day} Notes: {log.notes} </p>
+                                        <p>Day: {log.day}       Habit Done: {log.done}       Notes: {log.notes} </p>
                                         <button onClick={() => {this.removeLog(log.key)}}>Remove Log</button>
                                     </li>
                                 )
