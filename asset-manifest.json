@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/handy-habits/static/css/main.bfd58344.chunk.css",
-    "main.js": "/handy-habits/static/js/main.2445004a.chunk.js",
-    "main.js.map": "/handy-habits/static/js/main.2445004a.chunk.js.map",
+    "main.css": "/handy-habits/static/css/main.6b05752f.chunk.css",
+    "main.js": "/handy-habits/static/js/main.d9c96085.chunk.js",
+    "main.js.map": "/handy-habits/static/js/main.d9c96085.chunk.js.map",
     "runtime-main.js": "/handy-habits/static/js/runtime-main.42c3c0b7.js",
     "runtime-main.js.map": "/handy-habits/static/js/runtime-main.42c3c0b7.js.map",
     "static/js/2.f5ee815a.chunk.js": "/handy-habits/static/js/2.f5ee815a.chunk.js",
     "static/js/2.f5ee815a.chunk.js.map": "/handy-habits/static/js/2.f5ee815a.chunk.js.map",
     "index.html": "/handy-habits/index.html",
-    "precache-manifest.03243e63d5a4993f0ae9587815ddc6da.js": "/handy-habits/precache-manifest.03243e63d5a4993f0ae9587815ddc6da.js",
+    "precache-manifest.f25ceb1fa80bb80e848e49feb04ed130.js": "/handy-habits/precache-manifest.f25ceb1fa80bb80e848e49feb04ed130.js",
     "service-worker.js": "/handy-habits/service-worker.js",
-    "static/css/main.bfd58344.chunk.css.map": "/handy-habits/static/css/main.bfd58344.chunk.css.map",
+    "static/css/main.6b05752f.chunk.css.map": "/handy-habits/static/css/main.6b05752f.chunk.css.map",
     "static/js/2.f5ee815a.chunk.js.LICENSE.txt": "/handy-habits/static/js/2.f5ee815a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.42c3c0b7.js",
     "static/js/2.f5ee815a.chunk.js",
-    "static/css/main.bfd58344.chunk.css",
-    "static/js/main.2445004a.chunk.js"
+    "static/css/main.6b05752f.chunk.css",
+    "static/js/main.d9c96085.chunk.js"
   ]
 }
