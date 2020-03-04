@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c613f5c8835a0568b2509f175bb4dbd6",
+    "revision": "f25b83f7b127d53f1bc97ed0172e14fb",
     "url": "/handy-habits/index.html"
   },
   {
-    "revision": "bd6e76d98d2394b1609f",
-    "url": "/handy-habits/static/css/main.e4b42a8f.chunk.css"
+    "revision": "d9781a47d4a597365c6d",
+    "url": "/handy-habits/static/css/main.bfd58344.chunk.css"
   },
   {
     "revision": "8779ebf36e0aa7ec67c8",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/handy-habits/static/js/2.f5ee815a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bd6e76d98d2394b1609f",
-    "url": "/handy-habits/static/js/main.902dd823.chunk.js"
+    "revision": "d9781a47d4a597365c6d",
+    "url": "/handy-habits/static/js/main.2445004a.chunk.js"
   },
   {
     "revision": "c238a5b2f7a7f54c217c",
