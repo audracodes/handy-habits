@@ -26,8 +26,6 @@ class HabitApp extends Component {
             const stateToBeSet = [];
 
             for (let key in notesFromDb) {
-                console.log(notesFromDb[key]);
-                console.log(key);
                 const habitInfo = {
                     key: key,
                     day: notesFromDb[key].day,
@@ -45,7 +43,6 @@ class HabitApp extends Component {
     }
 
     handleHabitDoneChange = (e) => {
-        console.log(e.target.checked);
         this.setState ({
             habitDone: e.target.checked
         })
@@ -55,8 +52,6 @@ class HabitApp extends Component {
     handleHabitChange = (event) => {
         this.setState ({
             userInput: event.target.value
-        }, ()=>{
-            console.log(this.state.userInput)
         })
     }
 
@@ -71,32 +66,29 @@ class HabitApp extends Component {
             habit: this.state.userInput,
         }
 
-        console.log(event);
         dbRef.push(objectReadyForDatabase);
-
 
         this.setState ({
             userInput: '',
-            radioButton: 0,
+            radioButton: 27,
             habitDone: false, 
-        })
+        }, () => {
+            window.location.reload()
+        }) 
     }
 
     handleRadioButtonSelect = (event) => {
-        console.log(event.target.value)
         this.setState ({
             radioButton: event.target.value,
         })
     }
 
     removeLog = (logKey) => {
-        console.log(logKey);
         const dbRef = firebase.database().ref();
         dbRef.child(logKey).remove();
     }
 
     render() {
-        console.log(this.state.habitHistory)
         return (
             <div className = 'wrapper'>
                 <header>
@@ -110,6 +102,7 @@ class HabitApp extends Component {
                     handleFormSubmitFunc = {this.handleFormSubmit}
                     handleHabitChangeFunc = {this.handleHabitChange}
                     handleRadioButtonSelectFunc = {this.handleRadioButtonSelect}
+                    stateFromParent = {this.state}
                     />
                     <div className='habitLog border'>
                         <h2>Habit Log</h2>
